@@ -33,6 +33,7 @@ set hlsearch
 
 set showmatch
 set cursorline
+set mouse=a
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -42,7 +43,6 @@ filetype off                  " required
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " YouCompleteMe
-let g:ycm_server_python_interpreter = '/usr/bin/python'
 
 """ JAVASCRIPT
 " vim-javascript
