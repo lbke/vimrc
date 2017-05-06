@@ -42,7 +42,34 @@ filetype off                  " required
 " autoopen when no file is specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" quit nerdtree if there is no buffer left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" config
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+map <C-e> :NERDTreeTabsToggle<CR>:NERDTreeMirrorOpen<CR>
+map <leader>e :NERDTreeFind<CR>
+nmap <leader>nt :NERDTreeFind<CR>
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=0
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+" uncomment to always open NerdTree, though I prefer to open it only if no
+" file is specified (so I can still use Vim for quick edit)
+"let g:nerdtree_tabs_open_on_gui_startup=1
+"let g:nerdtree_tabs_open_on_console_startup=1
+"locate current file in NERDTree
+"map <leader>l :NERDTreeFind<cr>
+
+
 " YouCompleteMe
+
+"ctrlp
+" ignore big automated folders
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|.meteor\|dist\|build'
+
 
 """ JAVASCRIPT
 " vim-javascript
@@ -63,8 +90,10 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
 " Autocompletion
 Plugin 'valloric/youcompleteme'
 "Colors
@@ -73,6 +102,9 @@ Plugin 'altercation/vim-colors-solarized'
 "Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
+"Html
+Plugin 'mattn/emmet-vim'
+
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
