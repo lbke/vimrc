@@ -94,6 +94,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
 " Autocompletion
 Plugin 'valloric/youcompleteme'
 "Colors
